@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Lowney's Landscaping - Search-Visibility Audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1f3a2b;
+    --forest-deep: #14271c;
+    --moss: #4a6b4d;
+    --sage: #8aa68c;
+    --stone: #c9bfa8;
+    --stone-warm: #d8cdb3;
+    --ivory: #f5f1e6;
+    --ivory-soft: #faf7ef;
+    --cream: #ffffff;
+    --ink: #1a1a1a;
+    --muted: #5b5b5b;
+    --border: #d9d3c1;
+    --accent: #b8895b;
+    --shadow: 0 12px 32px rgba(20, 39, 28, 0.08);
+    --shadow-hover: 0 18px 48px rgba(20, 39, 28, 0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--ivory-soft);
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  .container-narrow { max-width: 880px; margin: 0 auto; padding: 0 28px; }
+
+  /* Header */
+  header.site {
+    background: var(--ivory);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+  header.site .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 28px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 19px;
+    letter-spacing: -0.01em;
+    color: var(--forest);
+  }
+  .logo span { color: var(--accent); }
+  nav.primary { display: flex; gap: 32px; }
+  nav.primary a {
+    color: var(--forest-deep);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  nav.primary a:hover { color: var(--accent); }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(155deg, var(--forest-deep) 0%, var(--forest) 55%, var(--moss) 100%);
+    color: var(--ivory);
+    padding: 96px 0 88px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 18% 30%, rgba(216, 205, 179, 0.08) 0%, transparent 38%),
+      radial-gradient(circle at 82% 70%, rgba(138, 166, 140, 0.12) 0%, transparent 42%);
+    pointer-events: none;
+  }
+  .hero .container { position: relative; z-index: 1; }
+  .eyebrow {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--stone-warm);
+    margin-bottom: 22px;
+    padding: 7px 14px;
+    background: rgba(216, 205, 179, 0.1);
+    border: 1px solid rgba(216, 205, 179, 0.22);
+    border-radius: 4px;
+  }
+  .hero h1 {
+    font-size: clamp(34px, 5vw, 56px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    margin-bottom: 26px;
+    max-width: 940px;
+  }
+  .hero h1 .accent { color: var(--stone-warm); }
+  .hero .sub {
+    font-size: 19px;
+    color: rgba(245, 241, 230, 0.86);
+    max-width: 760px;
+    margin-bottom: 48px;
+    line-height: 1.6;
+  }
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 16px;
+  }
+  .stat-card {
+    background: rgba(245, 241, 230, 0.06);
+    border: 1px solid rgba(216, 205, 179, 0.18);
+    padding: 26px 24px;
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+  }
+  .stat-card .num {
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--stone-warm);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .stat-card .lbl {
+    font-size: 13px;
+    color: rgba(245, 241, 230, 0.78);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+
+  /* Trust band */
+  .trust {
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 0;
+  }
+  .trust-inner {
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .trust-inner strong { color: var(--forest); font-weight: 600; }
+
+  /* Section base */
+  section.block {
+    padding: 96px 0;
+  }
+  section.block.alt { background: var(--cream); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .section-head {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 60px;
+  }
+  .section-head .tag {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .section-head h2 {
+    font-size: clamp(28px, 3.6vw, 42px);
+    font-weight: 800;
+    color: var(--forest-deep);
+    letter-spacing: -0.022em;
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+  .section-head p {
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  /* About */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .portrait {
+    background: linear-gradient(160deg, var(--forest) 0%, var(--moss) 60%, var(--sage) 100%);
+    border-radius: 12px;
+    height: 380px;
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+    color: var(--ivory);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .portrait::before {
+    content: "JL";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    font-size: 96px;
+    font-weight: 800;
+    color: rgba(216, 205, 179, 0.22);
+    letter-spacing: -0.04em;
+  }
+  .portrait .pname {
+    font-weight: 700;
+    font-size: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .portrait .ptitle {
+    font-size: 13px;
+    color: rgba(245, 241, 230, 0.78);
+    position: relative;
+    z-index: 1;
+  }
+  .about-text h3 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--forest-deep);
+    margin-bottom: 20px;
+    letter-spacing: -0.015em;
+  }
+  .about-text p {
+    color: var(--ink);
+    font-size: 16.5px;
+    line-height: 1.75;
+    margin-bottom: 18px;
+  }
+  .about-text p:last-child { margin-bottom: 0; }
+
+  /* Divisions */
+  .div-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  .div-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 36px 32px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+  }
+  .div-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+  }
+  .div-card .pin {
+    display: inline-block;
+    background: var(--ivory);
+    color: var(--forest);
+    border: 1px solid var(--border);
+    padding: 5px 11px;
+    border-radius: 4px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .div-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--forest-deep);
+    margin-bottom: 14px;
+    letter-spacing: -0.012em;
+  }
+  .div-card p {
+    color: var(--muted);
+    font-size: 15.5px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .div-card ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+  .div-card li {
+    color: var(--ink);
+    font-size: 14px;
+    padding: 6px 0;
+    padding-left: 22px;
+    position: relative;
+  }
+  .div-card li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 13px;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  /* Service grid */
+  .svc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .svc-card {
+    background: var(--ivory);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px 20px;
+    text-align: left;
+    transition: all 0.2s ease;
+  }
+  .svc-card:hover {
+    background: var(--cream);
+    border-color: var(--sage);
+    transform: translateY(-2px);
+  }
+  .svc-card .ico {
+    width: 38px;
+    height: 38px;
+    background: var(--forest);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--stone-warm);
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  .svc-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--forest-deep);
+    margin-bottom: 6px;
+    letter-spacing: -0.005em;
+  }
+  .svc-card p {
+    color: var(--muted);
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+
+  /* Audit table */
+  .audit-wrap {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  table.audit {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+  }
+  table.audit thead {
+    background: var(--forest-deep);
+    color: var(--ivory);
+  }
+  table.audit th {
+    padding: 16px 18px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  table.audit td {
+    padding: 18px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  table.audit tbody tr:last-child td { border-bottom: none; }
+  table.audit tbody tr:hover { background: var(--ivory-soft); }
+  table.audit td.q { font-weight: 600; color: var(--forest-deep); width: 38%; }
+  table.audit td.score {
+    font-family: 'Inter', monospace;
+    font-weight: 700;
+    color: #a83232;
+    width: 12%;
+  }
+  table.audit td.score.partial { color: var(--accent); }
+  table.audit td.note { color: var(--muted); font-size: 14px; line-height: 1.55; }
+  .audit-summary {
+    background: var(--ivory);
+    padding: 22px 26px;
+    border-top: 2px solid var(--accent);
+    font-size: 15px;
+    color: var(--forest-deep);
+  }
+  .audit-summary strong { color: #a83232; }
+
+  /* Build list */
+  .build-list {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+  }
+  .build-item {
+    padding: 22px 24px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 22px;
+    align-items: start;
+  }
+  .build-item:last-child { border-bottom: none; }
+  .build-item .num {
+    width: 40px;
+    height: 40px;
+    background: var(--forest);
+    color: var(--stone-warm);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .build-item h4 {
+    color: var(--forest-deep);
+    font-size: 17px;
+    margin-bottom: 6px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .build-item p {
+    color: var(--muted);
+    font-size: 14.5px;
+    line-height: 1.65;
+  }
+
+  /* Why now */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .why-card {
+    background: var(--ivory);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 28px 26px;
+    border-radius: 8px;
+  }
+  .why-card h4 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--forest-deep);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .why-card p {
+    color: var(--ink);
+    font-size: 14.5px;
+    line-height: 1.65;
+  }
+
+  /* FAQ */
+  details {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    padding: 0;
+    transition: border-color 0.2s ease;
+  }
+  details[open] { border-color: var(--sage); }
+  summary {
+    padding: 22px 26px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--forest-deep);
+    font-size: 16.5px;
+    list-style: none;
+    position: relative;
+    padding-right: 56px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+";
+    position: absolute;
+    right: 26px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    color: var(--accent);
+    font-weight: 400;
+    transition: transform 0.2s ease;
+  }
+  details[open] summary::after { content: "\2013"; }
+  details > div.body {
+    padding: 0 26px 24px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  /* Footer */
+  footer.site {
+    background: var(--forest-deep);
+    color: var(--ivory);
+    padding: 64px 0 44px;
+    text-align: center;
+  }
+  footer.site .sig {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--ivory);
+  }
+  footer.site .sub {
+    color: rgba(245, 241, 230, 0.7);
+    font-size: 14.5px;
+    margin-bottom: 28px;
+    line-height: 1.7;
+  }
+  footer.site a.cta {
+    display: inline-block;
+    background: var(--stone-warm);
+    color: var(--forest-deep);
+    padding: 14px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  footer.site a.cta:hover { background: var(--ivory); transform: translateY(-1px); }
+  footer.site .meta {
+    margin-top: 34px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(216, 205, 179, 0.15);
+    font-size: 12.5px;
+    color: rgba(245, 241, 230, 0.5);
+    letter-spacing: 0.04em;
+  }
+
+  /* Responsive */
+  @media (max-width: 860px) {
+    nav.primary { display: none; }
+    .stat-row { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; }
+    .portrait { height: 280px; }
+    .div-grid { grid-template-columns: 1fr; }
+    .svc-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: 1fr; }
+    section.block { padding: 64px 0; }
+    .hero { padding: 72px 0 64px; }
+    table.audit { font-size: 13px; }
+    table.audit th, table.audit td { padding: 12px 10px; }
+    table.audit td.q { width: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="inner">
+    <div class="logo">Lowney's <span>Audit</span></div>
+    <nav class="primary">
+      <a href="#about">About</a>
+      <a href="#divisions">Divisions</a>
+      <a href="#audit">Audit</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Search-Visibility Audit &middot; Prepared for Lowney's Landscaping</span>
+    <h1>29 years. 100+ employees. A dedicated Door County hardscapes division. An NBC26 feature. <span class="accent">Zero of five AI engines cite Lowney's.</span></h1>
+    <p class="sub">When homeowners and commercial buyers across Northeast Wisconsin ask ChatGPT, Gemini, Perplexity, Claude, and Google AI Overviews for the best landscape designer, outdoor living builder, or Door County hardscapes installer, the answers route around the largest family-owned landscape company in the region. This is a private walk-through of what the engines see, what they miss, and what would put Lowney's back on the answer page.</p>
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="num">29 yr</div>
+        <div class="lbl">Founded 1997 &middot; Joe Lowney</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">100+</div>
+        <div class="lbl">Employees across NE Wisconsin</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">2</div>
+        <div class="lbl">Divisions &middot; Appleton HQ + Door County</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="container">
+    <div class="trust-inner">
+      <strong>Joe Lowney</strong>, Founder &middot; Founded <strong>1997</strong> &middot; Appleton HQ + Door County branch + Green Bay service &middot; <strong>100+ employees</strong> &middot; NBC26 <em>Landscaping with Lauren</em> feature
+    </div>
+  </div>
+</div>
+
+<section class="block" id="about">
+  <div class="container">
+    <div class="section-head">
+      <div class="tag">About</div>
+      <h2>A 29-year landscape company that built itself the hard way</h2>
+      <p>The audit work below only matters if you understand the company being audited. Here is the version of Lowney's that the AI engines are failing to surface.</p>
+    </div>
+    <div class="about-grid">
+      <div class="portrait" aria-hidden="true">
+        <div>
+          <div class="pname">Joe Lowney</div>
+          <div class="ptitle">Founder &middot; Lowney's Landscaping</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <h3>Founded 1997 in Appleton, Wisconsin.</h3>
+        <p>Joe Lowney started Lowney's Landscaping in 1997 with a pickup truck, a trailer, and a willingness to do the work other contractors would not take on. Twenty-nine years later, the company runs out of a headquarters at N3310 State Road 47 in Appleton, fields more than one hundred employees in season, and serves residential and commercial clients across the Fox Cities, Green Bay, and the Door County peninsula.</p>
+        <p>Joe's brother, Billy Lowney, runs operations alongside him. The crew has grown from a two-man weekend hustle into a full-service landscape, hardscape, outdoor-living, tree-service, garden-center, and snow-removal company &middot; the kind of breadth most Wisconsin landscape firms never reach in a single career.</p>
+        <p>The work has been on local television. NBC26 featured Lowney's in its <em>Landscaping with Lauren</em> segment, walking through outdoor-living installs that homeowners would otherwise never see in detail. The company also opened a dedicated Door County branch, <strong>Lowney's Lakeshores</strong>, to serve hardscape and outdoor-living buyers along the peninsula where the work, the access, and the season are all different from inland Northeast Wisconsin.</p>
+        <p>None of that shows up when you ask an AI engine who the best landscape designer in Northeast Wisconsin is.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="divisions">
+  <div class="container">
+    <div class="section-head">
+      <div class="tag">Divisions</div>
+      <h2>Two distinct service footprints, two distinct buyers</h2>
+      <p>Most landscape firms run one location. Lowney's runs two with different geographies, different work mixes, and different sales rhythms. The AI engines treat both as if they do not exist.</p>
+    </div>
+    <div class="div-grid">
+      <div class="div-card">
+        <span class="pin">Division 01</span>
+        <h3>Lowney's Landscaping &middot; Appleton HQ</h3>
+        <p>The original division. Full-service residential and commercial landscape design, outdoor living construction, hardscape installation, tree service, garden-center retail, and seasonal snow removal across the Fox Cities, Green Bay, and broader Northeast Wisconsin.</p>
+        <ul>
+          <li>N3310 State Road 47, Appleton WI 54913</li>
+          <li>Residential + commercial design-build</li>
+          <li>In-house tree service crew</li>
+          <li>On-site garden center</li>
+          <li>Commercial snow contracts</li>
+        </ul>
+      </div>
+      <div class="div-card">
+        <span class="pin">Division 02</span>
+        <h3>Lowney's Lakeshores &middot; Door County branch</h3>
+        <p>The peninsula-dedicated division. Built specifically for the hardscape, outdoor-living, retaining-wall, and lake-access work that Door County properties require &middot; where the soil, the grade, the season, and the buyer are not the same as the Fox Cities market.</p>
+        <ul>
+          <li>Door County peninsula service area</li>
+          <li>Hardscape and outdoor-living focus</li>
+          <li>Lake-property terracing and retaining</li>
+          <li>Paver patios + pergolas + decks</li>
+          <li>Separate brand identity, same family ownership</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="container">
+    <div class="section-head">
+      <div class="tag">Services</div>
+      <h2>Eight service categories under one family roof</h2>
+      <p>The breadth is the moat. Very few Northeast Wisconsin landscape firms cover this full stack in-house, and the AI engines have no signal that Lowney's does.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="ico">OL</div>
+        <h4>Outdoor Living</h4>
+        <p>Full backyard build-outs &middot; outdoor kitchens, fire features, lighting.</p>
+      </div>
+      <div class="svc-card">
+        <div class="ico">HS</div>
+        <h4>Hardscapes</h4>
+        <p>Stone, paver, and natural-material installations for residential + commercial.</p>
+      </div>
+      <div class="svc-card">
+        <div class="ico">DP</div>
+        <h4>Decks &amp; Pergolas</h4>
+        <p>Custom-built decks, pergolas, and shade structures.</p>
+      </div>
+      <div class="svc-card">
+        <div class="ico">RW</div>
+        <h4>Retaining Walls</h4>
+        <p>Engineered retaining walls including peninsula lake-grade work.</p>
+      </div>
+      <div class="svc-card">
+        <div class="ico">PP</div>
+        <h4>Paver Patios</h4>
+        <p>Patio install, repair, and re-leveling on a residential + commercial scale.</p>
+      </div>
+      <div class="svc-card">
+        <div class="ico">TS</div>
+        <h4>Tree Service</h4>
+        <p>In-house tree care, removal, and storm response &middot; not a sub-contracted vendor.</p>
+      </div>
+      <div class="svc-card">
+        <div class="ico">GC</div>
+        <h4>Garden Center</h4>
+        <p>Retail nursery and plant-material yard at the Appleton headquarters.</p>
+      </div>
+      <div class="svc-card">
+        <div class="ico">SN</div>
+        <h4>Snow Removal</h4>
+        <p>Commercial seasonal snow contracts across Northeast Wisconsin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="audit">
+  <div class="container">
+    <div class="section-head">
+      <div class="tag">AI Search Audit</div>
+      <h2>Five queries. Five missed citations.</h2>
+      <p>Each query below was tested across ChatGPT, Gemini, Perplexity, Claude, and Google AI Overviews on the same day. The score reflects how many of those five engines named or cited Lowney's Landscaping in the answer they returned to a homeowner or commercial buyer.</p>
+    </div>
+    <div class="audit-wrap">
+      <table class="audit">
+        <thead>
+          <tr>
+            <th>Buyer-stage query</th>
+            <th>Score</th>
+            <th>What the engines returned instead</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="q">"Best landscape designer Northeast Wisconsin"</td>
+            <td class="score">0 / 5</td>
+            <td class="note">Engines defaulted to directory aggregators (Houzz, Angi, Yelp) and one or two competitor design-build firms. No mention of a 29-year, 100+ employee, family-founded option.</td>
+          </tr>
+          <tr>
+            <td class="q">"Outdoor living designer Green Bay"</td>
+            <td class="score">0 / 5</td>
+            <td class="note">Answers leaned toward regional general contractors and pergola-kit retailers. The dedicated outdoor-living division at Lowney's was not surfaced once.</td>
+          </tr>
+          <tr>
+            <td class="q">"Door County hardscapes Wisconsin"</td>
+            <td class="score">0 / 5</td>
+            <td class="note">No engine surfaced a peninsula-dedicated hardscape division. The Lakeshores branch is invisible despite being a named, separate brand identity built for exactly this query.</td>
+          </tr>
+          <tr>
+            <td class="q">"Lowney's Lakeshores Door County"</td>
+            <td class="score partial">1 / 5</td>
+            <td class="note">Only one engine connected the Lakeshores brand to the parent company. The other four returned ambiguous or unrelated answers &middot; even on a near-exact-match brand query.</td>
+          </tr>
+          <tr>
+            <td class="q">"Landscape design Appleton Green Bay"</td>
+            <td class="score">0 / 5</td>
+            <td class="note">A query that should have hit the Appleton headquarters directly. Engines returned mixed-region results and consumer marketplaces. No Lowney's citation.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="audit-summary">
+        <strong>Aggregate citation rate: 1 of 25 engine-query pairs (4%).</strong> The brand-name query is the only one that registers anywhere &middot; and only on one engine. Every category and geo query returns zero. For a 29-year company with 100+ employees, two named divisions, and televised local press, this is a structural gap, not an awareness gap.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="build">
+  <div class="container">
+    <div class="section-head">
+      <div class="tag">What we would build</div>
+      <h2>The work that closes the gap</h2>
+      <p>This is the build sheet. It is the same approach used to make a brand quotable to LLMs and to Google AI Overviews on the queries that matter to the buyer.</p>
+    </div>
+    <div class="build-list">
+      <div class="build-item">
+        <div class="num">01</div>
+        <div>
+          <h4>Organization + LandscapeService schema, anchored to foundingDate 1997</h4>
+          <p>A canonical Organization graph that names Lowney's as a 1997-founded family-owned landscape and outdoor-living company. The LandscapeService node enumerates the eight service categories so engines can match category-level queries to a specific provider instead of routing to directories.</p>
+        </div>
+      </div>
+      <div class="build-item">
+        <div class="num">02</div>
+        <div>
+          <h4>Person schema for Joe Lowney</h4>
+          <p>A founder Person node tied to the Organization, with sameAs links to the LinkedIn profile and the published press coverage. This is the structured signal engines need to attribute the 29-year founder story to a real, citable person.</p>
+        </div>
+      </div>
+      <div class="build-item">
+        <div class="num">03</div>
+        <div>
+          <h4>Lowney's Lakeshores divisional schema</h4>
+          <p>The Door County branch gets its own subOrganization node with a distinct areaServed (the peninsula) and a distinct service focus (hardscapes + outdoor living + lake-grade retaining work). This is what allows the "Door County hardscapes" query to finally resolve to a real provider.</p>
+        </div>
+      </div>
+      <div class="build-item">
+        <div class="num">04</div>
+        <div>
+          <h4>Dual-location LocalBusiness graph &middot; Appleton + Door County</h4>
+          <p>Two clean LocalBusiness entities under one parent Organization. Each carries its own address, phone, hours, and service-area polygon so engines can answer geographic queries with the correct division &middot; rather than collapsing both into a single, location-fuzzy answer.</p>
+        </div>
+      </div>
+      <div class="build-item">
+        <div class="num">05</div>
+        <div>
+          <h4>Per-service landing pages with answer-engine structure</h4>
+          <p>Dedicated pages for outdoor living, hardscapes, decks and pergolas, retaining walls, paver patios, tree service, garden center, and snow removal. Each page carries a Service schema, an FAQ block, and the kind of plain-language summary that LLMs lift verbatim into answers.</p>
+        </div>
+      </div>
+      <div class="build-item">
+        <div class="num">06</div>
+        <div>
+          <h4>NBC26 <em>Landscaping with Lauren</em> authority page</h4>
+          <p>A canonical press page that catalogs the NBC26 segment as a verifiable third-party citation. This is the kind of authority signal engines weight heavily &middot; and currently there is no on-site page consolidating it.</p>
+        </div>
+      </div>
+      <div class="build-item">
+        <div class="num">07</div>
+        <div>
+          <h4>FAQPage schema across the buyer-stage questions</h4>
+          <p>The questions a homeowner actually asks before hiring &middot; lead times, design process, warranty, who handles tree work, who handles snow, how the Door County branch is staffed differently &middot; structured into FAQPage markup that engines can lift directly.</p>
+        </div>
+      </div>
+      <div class="build-item">
+        <div class="num">08</div>
+        <div>
+          <h4>An internal-linking spine that engines can actually crawl</h4>
+          <p>The schema is half the work. The other half is making sure the Appleton HQ page, the Lakeshores page, every service page, the press page, and the founder page are all linked in a way that mirrors the Organization graph. That is what turns "structured" into "discoverable."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="tag">Why now</div>
+      <h2>The window is open and it does not stay open forever</h2>
+      <p>Three structural reasons this audit lands in 2026, and not in a quieter year.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <h4>Buyer behavior already shifted</h4>
+        <p>Homeowners and commercial property managers researching landscape work are running AI-search queries before they ever pull up Google Maps. The decision shortlist is being formed inside ChatGPT and Gemini, not inside a directory page.</p>
+      </div>
+      <div class="why-card">
+        <h4>The category is still under-occupied</h4>
+        <p>In Northeast Wisconsin, no landscape firm has captured the schema and content surface needed to dominate the answer page. The first family-owned firm to do it owns the citation pattern that competitors then have to fight to displace.</p>
+      </div>
+      <div class="why-card">
+        <h4>Door County is the leveraged play</h4>
+        <p>The Lakeshores division is a named brand that already exists. Standing it up as a peninsula-dedicated hardscape authority is the highest-margin, lowest-competition lane in the audit &middot; and the one most likely to compound year over year.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="container-narrow">
+    <div class="section-head">
+      <div class="tag">FAQ</div>
+      <h2>The questions worth answering up front</h2>
+    </div>
+    <details>
+      <summary>Why is AI search visibility different from regular SEO?</summary>
+      <div class="body">Traditional SEO optimizes for a results page of ten blue links. AI search optimizes for a single synthesized answer. The engines decide which businesses to name inside that answer based on structured data, third-party citations, and clean entity graphs &middot; not on keyword density. A company with 29 years of work and 100+ employees can still be entirely absent from the answer if the structured signal is not there. That is the gap this audit measures.</div>
+    </details>
+    <details>
+      <summary>Does this replace the work the existing website is doing?</summary>
+      <div class="body">No. The existing site, the social channels, and the NBC26 segment all become inputs into a sharper structured layer that the engines can read. The build is additive. The goal is to make the same brand quotable to LLMs and to Google AI Overviews without disrupting how homeowners and commercial buyers already reach Lowney's.</div>
+    </details>
+    <details>
+      <summary>How is the Lowney's Lakeshores division treated differently?</summary>
+      <div class="body">Lakeshores is a separate brand identity with a Door-County-only service area, so the schema treats it as a subOrganization with its own LocalBusiness node, its own areaServed polygon, and its own service catalog focused on hardscapes, outdoor living, and lake-grade retaining work. That is what makes the "Door County hardscapes" query finally resolve to a real provider instead of routing to a directory.</div>
+    </details>
+    <details>
+      <summary>What is the realistic timeline to see movement in citations?</summary>
+      <div class="body">The schema and entity work is read by the engines on their next crawl. The first measurable lift on long-tail and brand-adjacent queries typically lands inside 30 to 60 days. Category and geo queries &middot; the harder lanes &middot; compound across two to three index cycles. The audit above can be re-run at any point to confirm movement on the same five queries.</div>
+    </details>
+  </div>
+</section>
+
+<footer class="site" id="contact">
+  <div class="container">
+    <div class="sig">Prepared by Andrei Givero &middot; AG Consulting</div>
+    <div class="sub">Independent search-visibility audit for Lowney's Landscaping.<br>Private working document. Not for distribution.</div>
+    <a class="cta" href="https://andrei170.github.io/ag1/#services" target="_blank" rel="noopener">View services and engagement</a>
+    <div class="meta">Audit prepared 2026 &middot; Lowney's Landscaping &middot; Appleton + Door County, Wisconsin</div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://lowneyslandscaping.com/#organization",
+      "name": "Lowney's Landscaping",
+      "alternateName": ["Lowneys Landscaping", "Lowney's"],
+      "url": "https://lowneyslandscaping.com",
+      "foundingDate": "1997",
+      "founder": {
+        "@id": "https://lowneyslandscaping.com/#joe-lowney"
+      },
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "minValue": 100
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Fox Cities, Wisconsin" },
+        { "@type": "AdministrativeArea", "name": "Green Bay, Wisconsin" },
+        { "@type": "AdministrativeArea", "name": "Door County, Wisconsin" },
+        { "@type": "AdministrativeArea", "name": "Northeast Wisconsin" }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "N3310 State Road 47",
+        "addressLocality": "Appleton",
+        "addressRegion": "WI",
+        "postalCode": "54913",
+        "addressCountry": "US"
+      },
+      "subOrganization": {
+        "@id": "https://lowneyslandscaping.com/#lakeshores"
+      },
+      "sameAs": [
+        "https://www.facebook.com/LowneysLandscaping",
+        "https://www.instagram.com/lowneyslandscaping",
+        "https://www.linkedin.com/in/joe-lowney-9783b763"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://lowneyslandscaping.com/#lakeshores",
+      "name": "Lowney's Lakeshores",
+      "description": "Door County peninsula division of Lowney's Landscaping, focused on hardscapes, outdoor living, retaining walls, and paver patios for residential and commercial properties along the Door County lakeshore.",
+      "parentOrganization": {
+        "@id": "https://lowneyslandscaping.com/#organization"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Door County, Wisconsin"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://lowneyslandscaping.com/#joe-lowney",
+      "name": "Joe Lowney",
+      "jobTitle": "Founder",
+      "worksFor": {
+        "@id": "https://lowneyslandscaping.com/#organization"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/joe-lowney-9783b763"
+      ],
+      "description": "Founder of Lowney's Landscaping (1997). Builds and operates the company alongside his brother, Billy Lowney, across Northeast Wisconsin and the Door County peninsula."
+    },
+    {
+      "@type": "LandscapeService",
+      "@id": "https://lowneyslandscaping.com/#landscape-service",
+      "name": "Lowney's Landscaping &middot; Full-Service Landscape, Hardscape, and Outdoor Living",
+      "provider": {
+        "@id": "https://lowneyslandscaping.com/#organization"
+      },
+      "areaServed": [
+        "Appleton, WI",
+        "Green Bay, WI",
+        "Door County, WI",
+        "Northeast Wisconsin"
+      ],
+      "serviceType": [
+        "Outdoor Living",
+        "Hardscapes",
+        "Decks and Pergolas",
+        "Retaining Walls",
+        "Paver Patios",
+        "Tree Service",
+        "Garden Center",
+        "Snow Removal"
+      ]
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://lowneyslandscaping.com/#appleton",
+      "name": "Lowney's Landscaping &middot; Appleton Headquarters",
+      "parentOrganization": {
+        "@id": "https://lowneyslandscaping.com/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "N3310 State Road 47",
+        "addressLocality": "Appleton",
+        "addressRegion": "WI",
+        "postalCode": "54913",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Fox Cities", "Green Bay", "Northeast Wisconsin"]
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://lowneyslandscaping.com/#door-county",
+      "name": "Lowney's Lakeshores &middot; Door County Branch",
+      "parentOrganization": {
+        "@id": "https://lowneyslandscaping.com/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Door County",
+        "addressRegion": "WI",
+        "addressCountry": "US"
+      },
+      "areaServed": "Door County, Wisconsin"
+    },
+    {
+      "@type": "Service",
+      "name": "Outdoor Living Design and Construction",
+      "provider": { "@id": "https://lowneyslandscaping.com/#organization" },
+      "areaServed": "Northeast Wisconsin"
+    },
+    {
+      "@type": "Service",
+      "name": "Hardscape Installation",
+      "provider": { "@id": "https://lowneyslandscaping.com/#organization" },
+      "areaServed": ["Northeast Wisconsin", "Door County, Wisconsin"]
+    },
+    {
+      "@type": "Service",
+      "name": "Decks and Pergolas",
+      "provider": { "@id": "https://lowneyslandscaping.com/#organization" },
+      "areaServed": "Northeast Wisconsin"
+    },
+    {
+      "@type": "Service",
+      "name": "Retaining Walls",
+      "provider": { "@id": "https://lowneyslandscaping.com/#organization" },
+      "areaServed": ["Northeast Wisconsin", "Door County, Wisconsin"]
+    },
+    {
+      "@type": "Service",
+      "name": "Paver Patios",
+      "provider": { "@id": "https://lowneyslandscaping.com/#organization" },
+      "areaServed": "Northeast Wisconsin"
+    },
+    {
+      "@type": "Service",
+      "name": "Tree Service",
+      "provider": { "@id": "https://lowneyslandscaping.com/#organization" },
+      "areaServed": "Northeast Wisconsin"
+    },
+    {
+      "@type": "Service",
+      "name": "Garden Center",
+      "provider": { "@id": "https://lowneyslandscaping.com/#organization" },
+      "areaServed": "Fox Cities, Wisconsin"
+    },
+    {
+      "@type": "Service",
+      "name": "Commercial Snow Removal",
+      "provider": { "@id": "https://lowneyslandscaping.com/#organization" },
+      "areaServed": "Northeast Wisconsin"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is AI search visibility different from regular SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Traditional SEO optimizes for a results page of ten blue links. AI search optimizes for a single synthesized answer. The engines decide which businesses to name inside that answer based on structured data, third-party citations, and clean entity graphs, not on keyword density. A company with 29 years of work and 100+ employees can still be entirely absent from the answer if the structured signal is not there."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this replace the work the existing website is doing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The existing site, the social channels, and the NBC26 segment all become inputs into a sharper structured layer that the engines can read. The build is additive."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is the Lowney's Lakeshores division treated differently?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Lakeshores is a separate brand identity with a Door-County-only service area, so the schema treats it as a subOrganization with its own LocalBusiness node, its own areaServed polygon, and its own service catalog focused on hardscapes, outdoor living, and lake-grade retaining work."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the realistic timeline to see movement in citations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The schema and entity work is read by the engines on their next crawl. The first measurable lift on long-tail and brand-adjacent queries typically lands inside 30 to 60 days. Category and geo queries compound across two to three index cycles."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
