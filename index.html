@@ -149,6 +149,59 @@
     font-weight: 500;
   }
 
+  /* Prospect images band */
+  .pimages {
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+    padding: 40px 0 32px;
+  }
+  .pimages-head {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 24px;
+  }
+  .pimages-head .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 8px;
+  }
+  .pimages-head h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .pimages-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+  }
+  .pimages-grid figure {
+    margin: 12px;
+    max-width: 500px;
+    text-align: center;
+  }
+  .pimages-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+  .pimages-grid figcaption {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+  .pimages-grid figcaption strong { color: var(--forest); font-weight: 600; }
+
   /* Trust band */
   .trust {
     background: var(--cream);
@@ -615,6 +668,25 @@
         <div class="num">2</div>
         <div class="lbl">Divisions &middot; Appleton HQ + Door County</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="pimages" aria-label="About Lowney's Landscaping">
+  <div class="container">
+    <div class="pimages-head">
+      <div class="tag">About Lowney's Landscaping</div>
+      <h2>Twenty-nine years of work, photographed by the company that did it</h2>
+    </div>
+    <div class="pimages-grid">
+      <figure>
+        <img src="img/lowneys-founders-1997.webp" alt="Lowney's Landscaping founding crew, 1997, Appleton Wisconsin" loading="lazy" width="1023" height="731">
+        <figcaption><strong>Founded 1997.</strong> The Lowney's crew in the company's first year, Appleton, Wisconsin. Photo from Lowney's archives.</figcaption>
+      </figure>
+      <figure>
+        <img src="img/lowneys-outdoor-kitchen-oneida.webp" alt="Lowney's Landscaping hardscape install: outdoor kitchen and hot tub, Oneida area, Northeast Wisconsin" loading="lazy" width="1023" height="767">
+        <figcaption><strong>Hardscape + outdoor living.</strong> Outdoor kitchen and hot tub install, Oneida / Green Bay area. Photo from Lowney's portfolio.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
